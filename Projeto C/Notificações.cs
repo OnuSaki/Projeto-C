@@ -66,12 +66,16 @@ namespace Projeto_C
             //mudança de estado para admin e serviços inf./docentes                        
             if ((textBox1.Text == "admin") || (textBox1.Text == "serviçosinf"))
             {
+                button5.Hide();
+                button6.Show();
                 richTextBox1.ReadOnly = true;
                 richTextBox2.ReadOnly = false;
                 button4.Show();
             }
             else
             {
+                button5.Show();
+                button6.Hide();
                 richTextBox1.ReadOnly = false;
                 richTextBox2.ReadOnly = true;
                 button4.Hide();
@@ -114,6 +118,16 @@ namespace Projeto_C
             {
                 textBox2.Text = "Pendente";
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
