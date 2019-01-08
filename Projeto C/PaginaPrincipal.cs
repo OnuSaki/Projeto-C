@@ -20,11 +20,10 @@ namespace Projeto_C
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            if((label3.Text!="admin")&&(label3.Text!="serviçosinf"))
+            if ((label3.Text != "admin") && (label3.Text != "serviçosinf"))//botao sem permissoes
             {
-                button4.Hide();//esconde o botao gestao salas
-                //button5.Location=new Point(116, 240);//relocalizar botao consultas
-                //button6.Location = new Point(304, 240);//relocalizar botao assuntos
+                button4.Text = "Sem Permissões";
+                button4.Enabled = false;
             }
         }
 
