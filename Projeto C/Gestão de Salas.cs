@@ -122,6 +122,11 @@ namespace Projeto_C
         {
             this.Close();
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            maskedTextBox1.Text = listBox1.SelectedItem.ToString();
+        }
     }
     }
 
