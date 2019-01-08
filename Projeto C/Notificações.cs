@@ -115,13 +115,12 @@ namespace Projeto_C
 
         private void button2_Click(object sender, EventArgs e)
         {
-            button2.Hide();
-            listBox1.Hide();
+            button2.Hide();//botao fechar listbox de assuntos
+            listBox1.Hide();//fechar listbox dos assuntos
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-            
+        {          
 
         }
 
@@ -199,16 +198,16 @@ namespace Projeto_C
 
         private void button8_Click(object sender, EventArgs e)
         {
-            listBox1.Hide();
-            button2.Hide();
-            listBox2.Show();
-            button7.Show();
+            listBox1.Hide();//listbox dos assuntos
+            button2.Hide();//botao que fecha a listbox dos assuntos
+            listBox2.Show();//listbox2 das salas
+            button7.Show();//botao que fecha listbox2 das salas
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            button7.Hide();//botao que fecha listbox2 d
-            listBox2.Hide();
+            button7.Hide();//botao que fecha listbox2 das salas
+            listBox2.Hide();//listbox2 das salas
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)

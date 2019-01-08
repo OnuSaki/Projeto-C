@@ -31,7 +31,7 @@ namespace Projeto_C
         }
 
         //DUVIDA ---------------------------------DUVIDA------------------------------------DUVIDA-------------
-        public int contador = 0;
+        public int contador = 0;//duvida
         //DUVIDA ---------------------------------DUVIDA------------------------------------DUVIDA-------------
 
 

@@ -125,7 +125,7 @@ namespace Projeto_C
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            maskedTextBox1.Text = listBox1.SelectedItem.ToString();
+            maskedTextBox1.Text = listBox1.SelectedItem.ToString();//item selecionado é colocado na maskbox
         }
     }
     }
