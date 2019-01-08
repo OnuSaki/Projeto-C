@@ -163,5 +163,8 @@
   <ItemGroup>
     <None Include="Resources\botao para admin form notif.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chave notificaçao sala.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

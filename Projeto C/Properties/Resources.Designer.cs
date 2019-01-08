@@ -93,6 +93,16 @@ namespace Projeto_C.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chave_notificaçao_sala {
+            get {
+                object obj = ResourceManager.GetObject("chave notificaçao sala", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap form1_imagem {
             get {
                 object obj = ResourceManager.GetObject("form1 imagem", resourceCulture);

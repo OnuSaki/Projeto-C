@@ -121,17 +121,20 @@
   <data name="notificaçoes assuntos png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notificaçoes assuntos png.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="botao para admin form notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\botao para admin form notif.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="form1 imagem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\form1 imagem.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="notificaçoes assuntos png1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notificaçoes assuntos png1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="botao fechar notificaçoes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\botao fechar notificaçoes.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="multiple-choice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\multiple-choice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="botao fechar notificaçoes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botao fechar notificaçoes.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="notificaçoes assuntos png1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notificaçoes assuntos png1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="botao retroceder 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\botao retroceder 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,7 +145,7 @@
   <data name="form1 imagem1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\form1 imagem1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="botao para admin form notif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botao para admin form notif.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chave notificaçao sala" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chave notificaçao sala.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

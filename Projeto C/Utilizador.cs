@@ -9,16 +9,16 @@ namespace Projeto_C
     class Utilizador
     {
         //criei classe para transportar o nome de utilizador para outros forms que forem precisos
-        public string NOMEutilizador;
+        public string nomeU;
 
         public Utilizador()
         {
 
         }
 
-        public Utilizador(string NOMEutilizador)
+        public Utilizador(string nomeU)
         {
-            this.NOMEutilizador = NOMEutilizador;
+            this.nomeU = nomeU;
         }
 
 

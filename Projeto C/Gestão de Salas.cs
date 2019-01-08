@@ -50,6 +50,13 @@ namespace Projeto_C
                     if (linha == maskedTextBox1.Text)
                     {
                         MessageBox.Show("A sala " + maskedTextBox1.Text + " já se encontra no sistema");
+                        maskedTextBox1.Text = "";
+                        sr.Close();
+                        goto end;
+                    }
+                    if (maskedTextBox1.MaskFull==false)
+                    {
+                        MessageBox.Show("Preencha os espaços em branco.");
                         sr.Close();
                         goto end;
                     }
@@ -61,6 +68,7 @@ namespace Projeto_C
                 StreamWriter sw = File.AppendText(salas);
                 sw.WriteLine(maskedTextBox1.Text);
                 MessageBox.Show("Sala registada com sucesso");
+                maskedTextBox1.Text = "";
                 sw.Close();
             end:;
             }
@@ -80,7 +88,7 @@ namespace Projeto_C
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
+        {           
             string salas = @"salas.txt";
             if (File.Exists(salas))
             {
@@ -106,26 +114,29 @@ namespace Projeto_C
                         }
                         sw.Close();
                         MessageBox.Show("Sala removida com sucesso");
+                        maskedTextBox1.Text = "";
                         goto end;
                     }           
                 }
                 MessageBox.Show("A sala " + maskedTextBox1.Text + " não se encontra no sistema");
+                maskedTextBox1.Text = "";
             end:;
             }
             else
             {
                 MessageBox.Show("A sala " + maskedTextBox1.Text + " não se encontra no sistema");
+                maskedTextBox1.Text = "";
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            maskedTextBox1.Text = listBox1.SelectedItem.ToString();//item selecionado é colocado na maskbox
+            //maskedTextBox1.Text = listBox1.SelectedItem.ToString();//TA A DAR ERRO
         }
     }
     }

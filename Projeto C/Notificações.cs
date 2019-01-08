@@ -168,10 +168,11 @@ namespace Projeto_C
                     string data = textBox4.Text;//string da data para o ficheiro de texto
                     string hora = textBox5.Text;//string da hora para o ficheiro de texto
                     string estado = textBox2.Text;//string do estado para o ficheiro de texto
+                    string resposta = richTextBox2.Text;//string do estado do ficheiro de texto
 
                     using (StreamWriter sw = File.AppendText(ficheiro))
                     {
-                        sw.WriteLine(docente + "; " + sala + "; " + assunto + "; " + comentario + "; " + data + "; " + hora + "; " + estado + "; ");
+                        sw.WriteLine(docente + "; " + sala + "; " + assunto + "; " + data + "; " + hora + "; " + estado + "; " + comentario + "; "+resposta);
                         sw.Close();
                         MessageBox.Show("Pedido enviado!");
                     }
@@ -186,10 +187,12 @@ namespace Projeto_C
                 string data = textBox4.Text;//string da data para o ficheiro de texto
                 string hora = textBox5.Text;//string da hora para o ficheiro de texto
                 string estado = textBox2.Text;//string do estado para o ficheiro de texto
+                string resposta = richTextBox2.Text;//string do estado do ficheiro de texto
+
 
                 using (StreamWriter sw = File.AppendText(ficheiro))
                 {
-                    sw.WriteLine(docente + "; " + sala + "; " + assunto + "; " + comentario + "; " + data + "; " + hora + "; " + estado + "; ");
+                    sw.WriteLine(docente + "; " + sala + "; " + assunto + "; " + data + "; " + hora + "; " + estado + "; " + comentario + "; " + resposta);
                     sw.Close();
                     MessageBox.Show("Pedido enviado!");
                 }

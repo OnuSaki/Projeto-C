@@ -14,7 +14,7 @@ namespace Projeto_C
     {
         public PaginaPrincipal(string nomeutilz)
         {
-            InitializeComponent();
+            InitializeComponent();            
             label3.Text = nomeutilz;//nome de utilizador
             
         }
@@ -43,20 +43,21 @@ namespace Projeto_C
         private void button4_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Form f4 = new Form4();
-            f4.Show();
+            f4.Show();//abre gestao de salas            
         }
 
         //BOTAO GESTÃO DE SOFTWARE
         private void button1_Click(object sender, EventArgs e)
         {
-            Form software = new Gestao_de_Software();
-            software.Show();
+            Form software = new Gestao_de_Software();                        
+            software.Show();//abre gestao de software
         }
 
+        //BOTAO LOGOUT
         private void button8_Click(object sender, EventArgs e)
         {
             Form login = new Login();
-            login.Show();
+            login.Show();//da logout e volta ao login
             this.Close();
         }
 
@@ -64,7 +65,7 @@ namespace Projeto_C
         private void button6_Click(object sender, EventArgs e)
         {
             Form assuntos = new Assuntos();
-            assuntos.Show();
+            assuntos.Show();//abre os assuntos
         }
 
         //BOTAO ALERTAS
@@ -77,7 +78,7 @@ namespace Projeto_C
         private void button3_Click(object sender, EventArgs e)
         {
             Form notificaçoes = new Notificações(label3.Text);
-            notificaçoes.Show();
+            notificaçoes.Show();//abre as notificaçoes
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
