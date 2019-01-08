@@ -20,7 +20,19 @@ namespace Projeto_C
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            string utilizadores = @"utilizadores.txt";
+            StreamWriter sw;
+            if(File.Exists(utilizadores))
+            {
+                //não faz nada
+            }
+            else
+            {
+                sw = File.CreateText(utilizadores);
+                sw.WriteLine("admin;admin@admin;admin;admin");
+                sw.WriteLine("serviçosinf;serviços@informáticos.esmad;serviçosinformáticos;serviçosinf");
+                sw.Close();
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
