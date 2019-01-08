@@ -115,13 +115,12 @@ namespace Projeto_C
 
         private void button2_Click(object sender, EventArgs e)
         {
-            button2.Hide();
-            listBox1.Hide();
+            button2.Hide();//botao fechar listbox de assuntos
+            listBox1.Hide();//fechar listbox dos assuntos
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-            
+        {          
 
         }
 
