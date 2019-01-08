@@ -22,8 +22,8 @@ namespace Projeto_C
             Software software = new Software();
             software.hora = DateTime.Now.ToString("HH:mm");
             software.data = DateTime.Today.ToString("dd/MM/yyyy");
-            textBox4.Text = software.data;
-            textBox5.Text = software.hora;            
+            textBox4.Text = software.data;//caixa de texto para data
+            textBox5.Text = software.hora;//caixa de texto da hora
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -38,10 +38,10 @@ namespace Projeto_C
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button7.Hide();
-            listBox2.Hide();
-            button2.Show();
-            listBox1.Show();            
+            button7.Hide();//botao que fecha listbox2 das salas
+            listBox2.Hide();//listbox2 das salas
+            button2.Show();//button de fechar listbox1 dos assuntos
+            listBox1.Show();//listbox dos assuntos
         }
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
@@ -86,16 +86,16 @@ namespace Projeto_C
                 richTextBox2.ReadOnly = false;//texto do comentarios
                 button4.Show();//botao de mudar o estado
                 textBox3.ReadOnly = true;//botao do assunto para a não poder ser editado
-                button1.Hide();
-                button8.Hide();
+                button1.Hide();//botao dos assuntos
+                button8.Hide();//botao das salas
             }
             else
             {
-                button5.Show();
-                button6.Hide();
-                richTextBox1.ReadOnly = false;
-                richTextBox2.ReadOnly = true;
-                button4.Hide();
+                button5.Show();//botao enviar notificaçao
+                button6.Hide();//botao submeter comentario
+                richTextBox1.ReadOnly = false;//richtextbox dos comentarios
+                richTextBox2.ReadOnly = true;//richtextbox das respostas aos comentarios
+                button4.Hide();//botao de mudança de estado
             }
 
         }
@@ -107,8 +107,8 @@ namespace Projeto_C
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selecionado = listBox1.SelectedItem.ToString();
-            int pos = selecionado.IndexOf(";");
+            string selecionado = listBox1.SelectedItem.ToString();//objeto selecionado na listbox dos assuntos
+            int pos = selecionado.IndexOf(";");//
             string assuntonum = selecionado.Substring(0, pos);
             textBox3.Text = assuntonum;            
         }
@@ -207,7 +207,7 @@ namespace Projeto_C
 
         private void button7_Click(object sender, EventArgs e)
         {
-            button7.Hide();
+            button7.Hide();//botao que fecha listbox2 d
             listBox2.Hide();
         }
 

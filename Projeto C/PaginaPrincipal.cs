@@ -23,8 +23,8 @@ namespace Projeto_C
             if((label3.Text!="admin")&&(label3.Text!="serviçosinf"))
             {
                 button4.Hide();//esconde o botao gestao salas
-                button5.Location=new Point(116, 240);//relocalizar botao consultas
-                button6.Location = new Point(304, 240);//relocalizar botao assuntos
+                //button5.Location=new Point(116, 242);//relocalizar botao consultas
+                //button6.Location = new Point(304, 240);//relocalizar botao assuntos
             }
         }
 
