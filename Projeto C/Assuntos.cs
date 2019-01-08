@@ -119,5 +119,10 @@ namespace Projeto_C
             //limpar a caixa de texto
             richTextBox1.Text = "";
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            richTextBox1.Text = listBox1.SelectedItem.ToString();
+        }
     }
 }
