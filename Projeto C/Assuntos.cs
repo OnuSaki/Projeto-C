@@ -38,7 +38,7 @@ namespace Projeto_C
         //BOTAO ADICIONAR
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            int cont = 0;
             //coloca tudo em minusculas para facilitar a comparaçao a encontrar igualdade nos assuntos
             string assunto = richTextBox1.Text.ToLower();            
             //localizaçao do fichero assuntos
@@ -53,7 +53,14 @@ namespace Projeto_C
                     {
                         //posiçao do ';'
                         int pos = linha.LastIndexOf(";") + 1;
-                        int posx = linha.LastIndexOf(";");                        
+                        //posiçao do ';' da ultima linha
+                        int posx = linha.IndexOf(";");
+                        //obtem a string desde a posiçao 0 ate ao n de carateres pretendidos
+                        string numero = linha.Substring(0,posx);
+                        // int n é a conversao da string em int
+                        int n = Convert.ToInt32(numero);
+                        //contador 'cont' que estava em cima passa a ser o numero inteiro 'n'
+                        cont = n;
                         //tamanho da frase
                         int fim = linha.Length;
                         //numero de carateres do ';' ate ao fim da frase
@@ -79,11 +86,12 @@ namespace Projeto_C
                     //ciclo if para caso de não encontrar assunto igual
                     if (linha == null)
                     {
-                        contador = contador + 1;
-                        listBox1.Items.Add(contador + ";" + assunto);
+                        //CONTADOR PARA O ASSUNTO
+                        cont = cont + 1;//numero lido la em cima +1
+                        listBox1.Items.Add(cont + ";" + assunto);
                         //abre o ficheiro para escrever no final
                         StreamWriter sw = File.AppendText(ficheiro);
-                        sw.WriteLine("{0};{1}", contador, assunto);                        
+                        sw.WriteLine("{0};{1}", cont, assunto);                        
                         MessageBox.Show("Assunto adicionado com sucesso.");
                         richTextBox1.Text = "";
                         sw.Close();
@@ -92,9 +100,10 @@ namespace Projeto_C
             }
             //caso nao exista ficheiro
             else
-            {                
-                contador = contador + 1;
-                listBox1.Items.Add(contador + ";" + assunto);
+            {
+                //CONTADOR PARA O ASSUNTO
+                cont = cont + 1;//numero lido la em cima +1
+                listBox1.Items.Add(cont + ";" + assunto);
                 StreamWriter sw = File.CreateText(ficheiro);
                 sw.WriteLine("{0};{1}", contador, assunto);
                 MessageBox.Show("Assunto adicionado com sucesso.");
