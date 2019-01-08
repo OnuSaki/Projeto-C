@@ -89,6 +89,8 @@ namespace Projeto_C
                         //Confirma se a password está correta
                         if (textBox2.Text == linha.Substring(pos2, fim2))
                         {
+                            Utilizador pessoas = new Utilizador();
+                            pessoas.NOMEutilizador = textBox1.Text;
                             MessageBox.Show("Bem vindo " + textBox1.Text);                            
                             PaginaPrincipal f3 = new PaginaPrincipal(textBox1.Text);
                             f3.Show();

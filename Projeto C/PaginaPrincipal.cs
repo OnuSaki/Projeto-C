@@ -12,14 +12,15 @@ namespace Projeto_C
 {
     public partial class PaginaPrincipal : System.Windows.Forms.Form
     {
-        public PaginaPrincipal(string nomeUtilizador)
+        public PaginaPrincipal(string nomeutilz)
         {
             InitializeComponent();
-            label3.Text = nomeUtilizador;//UTILIZADOR ATIVO
+            label3.Text = nomeutilz;//nome de utilizador
+            
         }
 
         private void Form3_Load(object sender, EventArgs e)
-        {
+        {            
             if ((label3.Text != "admin") && (label3.Text != "serviçosinf"))//botao sem permissoes
             {
                 button4.Text = "Sem Permissões";
