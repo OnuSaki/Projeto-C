@@ -132,8 +132,7 @@ namespace Projeto_C
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            richTextBox1.Text = listBox1.SelectedItem.ToString();
+        {            
         }
     }
 }
