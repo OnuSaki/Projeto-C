@@ -64,9 +64,9 @@ namespace Projeto_C
                 //Se ainda não estiver no sistema, fecha o StreamReader
                 sr.Close();
                 //Adiciona a sala à listbox1 para depois ser passado ao ficheiro salas.txt
-                listBox1.Items.Add(maskedTextBox1.Text);
+                listBox1.Items.Add(maskedTextBox1.Text.ToUpper());
                 StreamWriter sw = File.AppendText(salas);
-                sw.WriteLine(maskedTextBox1.Text);
+                sw.WriteLine(maskedTextBox1.Text.ToUpper());
                 MessageBox.Show("Sala registada com sucesso");
                 maskedTextBox1.Text = "";
                 sw.Close();
@@ -95,12 +95,12 @@ namespace Projeto_C
                 for (int i = 0; i < listBox1.Items.Count; i++)
                 {
                     //Confirmação se a sala se encontra no sistema
-                    if (maskedTextBox1.Text == listBox1.Items[i].ToString())
+                    if (maskedTextBox1.Text.ToUpper() == listBox1.Items[i].ToString())
                     {
                         //Se estiver registada no sistema, apaga todo o texto do ficheiro salas.txt e volta a 
                         //escrever de acordo com a listbox1 sem a sala que se removeu
                         string linha;
-                        listBox1.Items.Remove(maskedTextBox1.Text);
+                        listBox1.Items.Remove(maskedTextBox1.Text.ToUpper());
                         //Apagar todo o texto do ficheiro
                         File.WriteAllText(@"salas.txt", "");
                         StreamWriter sw = File.AppendText(salas);
@@ -138,7 +138,7 @@ namespace Projeto_C
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //maskedTextBox1.Text = listBox1.SelectedItem.ToString();//TA A DAR ERRO
+            //maskedTextBox1.Text = listBox1.SelectedItem.ToString();
         }
     }
     }
