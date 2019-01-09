@@ -47,9 +47,9 @@ namespace Projeto_C
                 {
                     //Confirma se a sala já está presente no ficheiro
                     //Se tiver manda a mensagem que já se encontra no sistema
-                    if (linha == maskedTextBox1.Text)
+                    if (linha == maskedTextBox1.Text.ToUpper())
                     {
-                        MessageBox.Show("A sala " + maskedTextBox1.Text + " já se encontra no sistema");
+                        MessageBox.Show("A sala " + maskedTextBox1.Text.ToUpper() + " já se encontra no sistema");
                         maskedTextBox1.Text = "";
                         sr.Close();
                         goto end;
@@ -65,6 +65,7 @@ namespace Projeto_C
                 sr.Close();
                 //Adiciona a sala à listbox1 para depois ser passado ao ficheiro salas.txt
                 listBox1.Items.Add(maskedTextBox1.Text.ToUpper());
+                listBox1.Sorted = true;
                 StreamWriter sw = File.AppendText(salas);
                 sw.WriteLine(maskedTextBox1.Text.ToUpper());
                 MessageBox.Show("Sala registada com sucesso");
