@@ -32,10 +32,6 @@ namespace Projeto_C
             
         }
 
-        //DUVIDA ---------------------------------DUVIDA------------------------------------DUVIDA-------------
-        public int contador = 0;//duvida
-        //DUVIDA ---------------------------------DUVIDA------------------------------------DUVIDA-------------
-
 
         //BOTAO ADICIONAR
         private void button1_Click(object sender, EventArgs e)
@@ -107,7 +103,7 @@ namespace Projeto_C
                 cont = cont + 1;//numero lido la em cima +1
                 listBox1.Items.Add(cont + ";" + assunto);
                 StreamWriter sw = File.CreateText(ficheiro);
-                sw.WriteLine("{0};{1}", contador, assunto);
+                sw.WriteLine("{0};{1}", cont, assunto);
                 MessageBox.Show("Assunto adicionado com sucesso.");
                 richTextBox1.Text = "";
                 sw.Close();
