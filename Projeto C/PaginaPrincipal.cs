@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Projeto_C
 {
@@ -25,6 +26,42 @@ namespace Projeto_C
             {
                 button4.Text = "Sem Permissões";
                 button4.Enabled = false;
+            }
+            string salas = @"salas.txt";
+            if (File.Exists(salas))
+            {
+
+            }
+            else
+            {
+                StreamWriter criar = File.CreateText(salas);
+                criar.Close();
+                using (StreamWriter sw = File.AppendText(salas))
+                {
+                    sw.WriteLine("B101");
+                    sw.WriteLine("B102");
+                    sw.WriteLine("B103");
+                    sw.WriteLine("B104");
+                    sw.WriteLine("B105");
+                    sw.WriteLine("B106");
+                    sw.WriteLine("B107");
+                    sw.WriteLine("B108");
+                    sw.WriteLine("B109");
+                    sw.WriteLine("B110");
+                    sw.WriteLine("B111");
+                    sw.WriteLine("B201");
+                    sw.WriteLine("B202");
+                    sw.WriteLine("B203");
+                    sw.WriteLine("B204");
+                    sw.WriteLine("B205");
+                    sw.WriteLine("B206");
+                    sw.WriteLine("B207");
+                    sw.WriteLine("B208");
+                    sw.WriteLine("B209");
+                    sw.WriteLine("B210");
+                    sw.WriteLine("B211");
+                    sw.Close();
+                }
             }
         }
 
