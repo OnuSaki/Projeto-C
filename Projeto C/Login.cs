@@ -88,9 +88,10 @@ namespace Projeto_C
                         int fim2 = fim - pos2;
                         //Confirma se a password está correta
                         if (textBox2.Text == linha.Substring(pos2, fim2))
-                        {                            
+                        {
+                            pessoas.nomeut = textBox1.Text;
                             MessageBox.Show("Bem vindo " + textBox1.Text);                            
-                            PaginaPrincipal f3 = new PaginaPrincipal(textBox1.Text);
+                            PaginaPrincipal f3 = new PaginaPrincipal();
                             f3.Show();
                             //Neste caso tem de ser .hide porque, como o form1 é o principal, 
                             //este tem de estar sempre ativo senão o programa desliga

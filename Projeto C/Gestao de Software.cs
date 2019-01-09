@@ -20,11 +20,15 @@ namespace Projeto_C
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Form f = new PaginaPrincipal();
+            f.Show();
             this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //limpa a text box do software depois de mudar de sala
+            textBox1.Text = "";            
             string salas = @"salas.txt";
             StreamReader sr;
             //confirma se existe o ficheiro salas
@@ -39,13 +43,13 @@ namespace Projeto_C
                 }
                 sr.Close();
                 //ficheiro .txt com a sala que se pretende verificar
-                string sala = @"" + maskedTextBox1.Text + ".txt";
+                string sala = @"" + comboBox1.Text + ".txt";
                 string num = listBox2.Items.Count.ToString();
                 int num1 = Convert.ToInt16(num);
                 for (int i = 0; i < num1; i++)
                 {
                     //Verifica se existe a sala no sistema
-                    if (maskedTextBox1.Text == listBox2.Items[i].ToString())
+                    if (comboBox1.Text == listBox2.Items[i].ToString())
                     {
                         if (File.Exists(sala))
                         {
@@ -66,7 +70,7 @@ namespace Projeto_C
                             //Textbox à frente da label software
                             textBox1.Visible = true;
                             //textbox à frente da label licença
-                            textBox2.Visible = true;
+                            comboBox2.Visible = true;
                             //botão adicionar software
                             button2.Visible = true;
                             //botão verificar outra sala
@@ -75,8 +79,8 @@ namespace Projeto_C
                             button1.Visible = false;
                             //label sala
                             label1.Visible = false;
-                            //textbox para escrever que sala se pretende verificar
-                            maskedTextBox1.Visible = false;
+                            //combobox sala
+                            comboBox1.Visible = false;                            
                             goto end;
                         }
                         else
@@ -101,7 +105,7 @@ namespace Projeto_C
                             //Textbox à frente da label software
                             textBox1.Visible = true;
                             //textbox à frente da label licença
-                            textBox2.Visible = true;
+                            comboBox2.Visible = true;
                             //botão adicionar software
                             button2.Visible = true;
                             //botão verificar outra sala
@@ -110,8 +114,8 @@ namespace Projeto_C
                             button1.Visible = false;
                             //label sala
                             label1.Visible = false;
-                            //textbox para escrever que sala se pretende verificar
-                            maskedTextBox1.Visible = false;
+                            //combobox sala
+                            comboBox1.Visible = false;
                             goto end;
                         }
                     }
@@ -128,9 +132,9 @@ namespace Projeto_C
         private void button2_Click(object sender, EventArgs e)
         {
             Software software = new Software();
-            string sala = @"" + maskedTextBox1.Text + ".txt";
+            string sala = @"" + comboBox1.Text + ".txt";
             software.software = textBox1.Text;
-            software.tipo = textBox2.Text;
+            software.tipo = comboBox2.Text;
             software.hora = DateTime.Now.ToString("HH:mm");
             software.data = DateTime.Today.ToString("dd/MM/yyyy");
             //Confirma se o software já está instalado nessa sala ou não
@@ -182,7 +186,7 @@ namespace Projeto_C
             //Textbox à frente da label software
             textBox1.Visible = false;
             //textbox à frente da label licença
-            textBox2.Visible = false;
+            comboBox2.Visible = false;
             //botão adicionar software
             button2.Visible = false;
             //botão verificar outra sala
@@ -192,13 +196,41 @@ namespace Projeto_C
             //label sala
             label1.Visible = true;
             //textbox para escrever que sala se pretende verificar
-            maskedTextBox1.Visible = true;
-            maskedTextBox1.Text = "";
+            comboBox1.Visible = true;
+            comboBox1.Text = "";
         }
 
         private void Gestao_de_Software_Load(object sender, EventArgs e)
         {
+            string salas = @"salas.txt";
+            StreamReader sr;
+            //confirma se existe o ficheiro salas
+            if (File.Exists(salas))
+            {
+                //existindo, abre-o para colocar que salas se encontram no sistema
+                sr = File.OpenText(salas);
+                string linha;
+                while ((linha = sr.ReadLine()) != null)
+                {
+                    comboBox1.Items.Add(linha);
+                }
+                sr.Close();
+            }
+            //combobox2 itens            
+            comboBox2.Items.Add("Open Source");
+            comboBox2.Items.Add("Comercial Software");
+            comboBox2.Items.Add("Freeware");
+            comboBox2.Items.Add("30 Days Trial");
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

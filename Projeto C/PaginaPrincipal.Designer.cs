@@ -155,6 +155,7 @@
             this.label3.Size = new System.Drawing.Size(146, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "nome de utilizador";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel1
             // 

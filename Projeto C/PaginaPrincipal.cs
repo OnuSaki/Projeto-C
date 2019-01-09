@@ -12,15 +12,14 @@ namespace Projeto_C
 {
     public partial class PaginaPrincipal : System.Windows.Forms.Form
     {
-        public PaginaPrincipal(string nomeutilz)
+        public PaginaPrincipal()
         {
-            InitializeComponent();            
-            label3.Text = nomeutilz;//nome de utilizador
-            
+            InitializeComponent();
         }
 
         private void Form3_Load(object sender, EventArgs e)
-        {            
+        {
+            label3.Text = pessoas.nomeut;
             if ((label3.Text != "admin") && (label3.Text != "serviçosinf"))//botao sem permissoes
             {
                 button4.Text = "Sem Permissões";
@@ -43,7 +42,8 @@ namespace Projeto_C
         private void button4_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Form f4 = new Form4();
-            f4.Show();//abre gestao de salas            
+            f4.Show();//abre gestao de salas
+            this.Hide();
         }
 
         //BOTAO GESTÃO DE SOFTWARE
@@ -51,6 +51,7 @@ namespace Projeto_C
         {
             Form software = new Gestao_de_Software();                        
             software.Show();//abre gestao de software
+            this.Hide();
         }
 
         //BOTAO LOGOUT
@@ -66,6 +67,7 @@ namespace Projeto_C
         {
             Form assuntos = new Assuntos();
             assuntos.Show();//abre os assuntos
+            this.Hide();
         }
 
         //BOTAO ALERTAS
@@ -79,9 +81,15 @@ namespace Projeto_C
         {
             Form notificaçoes = new Notificações(label3.Text);
             notificaçoes.Show();//abre as notificaçoes
+            this.Hide();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

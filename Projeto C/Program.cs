@@ -6,6 +6,10 @@ using System.Windows.Forms;
 
 namespace Projeto_C
 {
+    public class pessoas
+    {
+        public static string nomeut;
+    }
     static class Program
     {
         /// <summary>
