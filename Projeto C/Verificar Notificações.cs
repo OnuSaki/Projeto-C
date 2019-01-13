@@ -31,18 +31,27 @@ namespace Projeto_C
             int i = 0;
             if (File.Exists(notificacao))
             {
+                //copia todas as notificações para a datagridview
                 sr = File.OpenText(notificacao);
                 while ((linha = sr.ReadLine()) != null)
                 {
                     dataGridView1.Rows.Add(1);
                     string[] words = linha.Split(';');
+                    //utilizador
                     dataGridView1[0, i].Value = words[0];
+                    //sala
                     dataGridView1[1, i].Value = words[1];
+                    //assunto
                     dataGridView1[2, i].Value = words[2];
+                    //data
                     dataGridView1[3, i].Value = words[3];
+                    //hora
                     dataGridView1[4, i].Value = words[4];
+                    //estado
                     dataGridView1[5, i].Value = words[5];
+                    //comentario
                     dataGridView1[6, i].Value = words[6];
+                    //resposta
                     dataGridView1[7, i].Value = words[7];
                     i++;
                 }

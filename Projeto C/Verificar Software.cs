@@ -23,11 +23,14 @@ namespace Projeto_C
             string salas = @"salas.txt";
             string linha = "";
             StreamReader sr = File.OpenText(salas);
+            //adiciona as salas todas à listbox para prevenir se houver alterações no ficheiro salas
             while((linha = sr.ReadLine())!= null)
             {
                 listBox1.Items.Add(linha);
             }
             sr.Close();
+            //Para cada sala, verifica se existe o ficheiro
+            //se existir, passa todo o software dessa sala e avança para a próxima
             for (int i = 0; i < listBox1.Items.Count; i++)
             {
                 StreamReader sala;
@@ -39,10 +42,15 @@ namespace Projeto_C
                     {
                         dataGridView1.Rows.Add(1);
                         string[] words = linha.Split(';');
+                        //nome sala
                         dataGridView1[0, i].Value = listBox1.Items[i].ToString();
+                        //software
                         dataGridView1[1, i].Value = words[0];
+                        //data
                         dataGridView1[2, i].Value = words[1];
+                        //hora
                         dataGridView1[3, i].Value = words[2];
+                        //tipo licença
                         dataGridView1[4, i].Value = words[3];
                     }
                 }
