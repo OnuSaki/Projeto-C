@@ -52,7 +52,7 @@ namespace Projeto_C
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form f = new PaginaPrincipal();
+            Form f = new Consultas();
             f.Show();
             this.Close();
         }

@@ -30,13 +30,16 @@ namespace Projeto_C
         private void Assuntos_Load(object sender, EventArgs e)
         {
             string assuntos = @"assuntos.txt";
-            StreamReader sr = File.OpenText(assuntos);
-            string linha = "";
-            while ((linha = sr.ReadLine()) != null)
+            if (File.Exists(assuntos))
             {
-                listBox1.Items.Add(linha);
+                StreamReader sr = File.OpenText(assuntos);
+                string linha = "";
+                while ((linha = sr.ReadLine()) != null)
+                {
+                    listBox1.Items.Add(linha);
+                }
+                sr.Close();
             }
-            sr.Close();
         }
 
 
