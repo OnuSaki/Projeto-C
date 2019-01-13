@@ -72,7 +72,9 @@ namespace Projeto_C
         //BOTAO CONSULTAS
         private void button5_Click(object sender, EventArgs e)
         {
-
+            Form consultas = new Consultas();
+            consultas.Show();
+            this.Hide();
         }
         
         //BOTAO GESTAO DE SALAS
