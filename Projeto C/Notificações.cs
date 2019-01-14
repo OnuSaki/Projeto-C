@@ -83,9 +83,7 @@ namespace Projeto_C
             if ((textBox1.Text == "admin") || (textBox1.Text == "serviçosinf"))
             {
                 button5.Hide();//botao enviar notificaçao
-                button6.Show();//botao submeter comentario
-                richTextBox1.ReadOnly = true;//texto da resposta aos comentarios
-                richTextBox2.ReadOnly = false;//texto do comentarios
+                richTextBox1.ReadOnly = true;//texto dos comentarios
                 button4.Show();//botao de mudar o estado
                 textBox3.ReadOnly = true;//botao do assunto para a não poder ser editado
                 button1.Hide();//botao dos assuntos
@@ -94,12 +92,44 @@ namespace Projeto_C
             else
             {
                 button5.Show();//botao enviar notificaçao
-                button6.Hide();//botao submeter comentario
                 richTextBox1.ReadOnly = false;//richtextbox dos comentarios
-                richTextBox2.ReadOnly = true;//richtextbox das respostas aos comentarios
                 button4.Hide();//botao de mudança de estado
             }
-
+            string notificacoes = @"notificaçoes.txt";
+            //Caso o docente já tenha uma notificação pendente, esta aparece-lhe e tem de esperar pela resposta para mandar outra
+            if (File.Exists(notificacoes))
+            {
+                StreamReader sr = File.OpenText(notificacoes);
+                string linha = "";
+                while ((linha = sr.ReadLine()) != null)
+                {
+                    string[] ut = linha.Split(';');
+                    if (textBox1.Text == ut[0])
+                    {
+                        if (ut[7] == "")
+                        {
+                            maskedTextBox1.Text = ut[1];
+                            textBox3.Text = ut[2];
+                            textBox4.Text = ut[3];
+                            textBox5.Text = ut[4];
+                            textBox2.Text = ut[5];
+                            richTextBox1.Text = ut[6];
+                            maskedTextBox1.ReadOnly = true;
+                            textBox3.ReadOnly = true;
+                            textBox4.ReadOnly = true;
+                            textBox5.ReadOnly = true;
+                            textBox2.ReadOnly = true;
+                            richTextBox1.ReadOnly = true;
+                            button8.Enabled = false;
+                            button1.Enabled = false;
+                            button5.Enabled = false;
+                            MessageBox.Show("Por favor espere pela resposta do admin/serviços de informática antes de efetuar outra notificação. Pode consultar agora a sua última notificação!");
+                        }
+                    }
+                }
+                sr.Close();
+            }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -109,10 +139,17 @@ namespace Projeto_C
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selecionado = listBox1.SelectedItem.ToString();//objeto selecionado na listbox dos assuntos
-            int pos = selecionado.IndexOf(";");//
-            string assuntonum = selecionado.Substring(0, pos);
-            textBox3.Text = assuntonum;            
+            try
+            {
+                string selecionado = listBox1.SelectedItem.ToString();//objeto selecionado na listbox dos assuntos
+                int pos = selecionado.IndexOf(";");//
+                string assuntonum = selecionado.Substring(0, pos);
+                textBox3.Text = assuntonum;
+            }
+            catch
+            {
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -170,11 +207,10 @@ namespace Projeto_C
                     string data = textBox4.Text;//string da data para o ficheiro de texto
                     string hora = textBox5.Text;//string da hora para o ficheiro de texto
                     string estado = textBox2.Text;//string do estado para o ficheiro de texto
-                    string resposta = richTextBox2.Text;//string do estado do ficheiro de texto
 
                     using (StreamWriter sw = File.AppendText(ficheiro))
                     {
-                        sw.WriteLine(docente + "; " + sala + "; " + assunto + "; " + data + "; " + hora + "; " + estado + "; " + comentario + "; "+resposta);
+                        sw.WriteLine(docente + ";" + sala + ";" + assunto + ";" + data + ";" + hora + ";" + estado + ";" + comentario + ";");
                         sw.Close();
                         MessageBox.Show("Pedido enviado!");
                     }
@@ -189,12 +225,11 @@ namespace Projeto_C
                 string data = textBox4.Text;//string da data para o ficheiro de texto
                 string hora = textBox5.Text;//string da hora para o ficheiro de texto
                 string estado = textBox2.Text;//string do estado para o ficheiro de texto
-                string resposta = richTextBox2.Text;//string do estado do ficheiro de texto
 
 
                 using (StreamWriter sw = File.AppendText(ficheiro))
                 {
-                    sw.WriteLine(docente + "; " + sala + "; " + assunto + "; " + data + "; " + hora + "; " + estado + "; " + comentario + "; " + resposta);
+                    sw.WriteLine(docente + ";" + sala + ";" + assunto + ";" + data + ";" + hora + ";" + estado + ";" + comentario + ";");
                     sw.Close();
                     MessageBox.Show("Pedido enviado!");
                 }
