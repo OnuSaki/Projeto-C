@@ -77,7 +77,7 @@ namespace Projeto_C
             else
             {
                 StreamWriter sw = File.CreateText(salas);
-                sw.WriteLine(maskedTextBox1.Text);
+                sw.WriteLine(maskedTextBox1.Text.ToUpper());
                 MessageBox.Show("Sala registada com sucesso");
                 sw.Close();
             }
