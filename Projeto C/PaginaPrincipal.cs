@@ -26,6 +26,12 @@ namespace Projeto_C
                 button4.Text = "Sem Permissões";
                 button4.Enabled = false;
             }
+            if ((label3.Text != "admin") && (label3.Text != "serviçosinf"))//botao sem permissoes
+            {
+                button1.Text = "Sem Permissões";
+                button1.Enabled = false;
+            }
+            //Criação de salas pré-defenidas
             string salas = @"salas.txt";
             if (File.Exists(salas))
             {
@@ -61,6 +67,31 @@ namespace Projeto_C
                     sw.WriteLine("B211");
                     sw.Close();
                 }
+            }
+            //StatusStrip com os alertas
+            if ((label3.Text == "admin") || (label3.Text == "serviçosinf"))
+            {
+                string notificacao = @"notificaçoes.txt";
+                string linha = "";
+                int i = 0;
+                StreamReader sr;
+                if (File.Exists(notificacao))
+                {
+                    sr = File.OpenText(notificacao);
+                    while ((linha = sr.ReadLine()) != null)
+                    {
+                        string[] words = linha.Split(';');
+                        if (words[5] == "Pendente")
+                        {
+                            i++;
+                        }
+                    }
+                    toolStripStatusLabel1.Text = "Você tem " + i + " notificações pendentes.";
+                }
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = "";
             }
         }
 
@@ -134,6 +165,11 @@ namespace Projeto_C
         }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
 
         }
