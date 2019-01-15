@@ -94,42 +94,7 @@ namespace Projeto_C
                 button5.Show();//botao enviar notificaçao
                 richTextBox1.ReadOnly = false;//richtextbox dos comentarios
                 button4.Hide();//botao de mudança de estado
-            }
-            string notificacoes = @"notificaçoes.txt";
-            //Caso o docente já tenha uma notificação pendente, esta aparece-lhe e tem de esperar pela resposta para mandar outra
-            if (File.Exists(notificacoes))
-            {
-                StreamReader sr = File.OpenText(notificacoes);
-                string linha = "";
-                while ((linha = sr.ReadLine()) != null)
-                {
-                    string[] ut = linha.Split(';');
-                    if (textBox1.Text == ut[0])
-                    {
-                        if (ut[7] == "")
-                        {
-                            maskedTextBox1.Text = ut[1];
-                            textBox3.Text = ut[2];
-                            textBox4.Text = ut[3];
-                            textBox5.Text = ut[4];
-                            textBox2.Text = ut[5];
-                            richTextBox1.Text = ut[6];
-                            maskedTextBox1.ReadOnly = true;
-                            textBox3.ReadOnly = true;
-                            textBox4.ReadOnly = true;
-                            textBox5.ReadOnly = true;
-                            textBox2.ReadOnly = true;
-                            richTextBox1.ReadOnly = true;
-                            button8.Enabled = false;
-                            button1.Enabled = false;
-                            button5.Enabled = false;
-                            MessageBox.Show("Por favor espere pela resposta do admin/serviços de informática antes de efetuar outra notificação. Pode consultar agora a sua última notificação!");
-                        }
-                    }
-                }
-                sr.Close();
-            }
-            
+            }            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
