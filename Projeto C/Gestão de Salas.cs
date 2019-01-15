@@ -119,13 +119,13 @@ namespace Projeto_C
                         goto end;
                     }           
                 }
-                MessageBox.Show("A sala " + maskedTextBox1.Text + " não se encontra no sistema");
+                MessageBox.Show("A sala " + maskedTextBox1.Text.ToUpper() + " não se encontra no sistema");
                 maskedTextBox1.Text = "";
             end:;
             }
             else
             {
-                MessageBox.Show("A sala " + maskedTextBox1.Text + " não se encontra no sistema");
+                MessageBox.Show("A sala " + maskedTextBox1.Text.ToUpper() + " não se encontra no sistema");
                 maskedTextBox1.Text = "";
             }
         }
