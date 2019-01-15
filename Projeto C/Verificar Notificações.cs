@@ -135,6 +135,7 @@ namespace Projeto_C
                                 (dataGridView1[6, i].Value.ToString() == words[6]) && (words[7] == ""))
                             {
                                 //após a confirmação deleta todo o ficheiro do ficheiro para voltar a escrever com a resposta
+                                dataGridView1[5, i].Value = "Concluído";
                                 sr.Close();
                                 File.WriteAllText(notificacao, "");
                                 StreamWriter sw = File.AppendText(notificacao);
