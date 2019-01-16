@@ -63,6 +63,10 @@ namespace Projeto_C
                         dataGridView1[6, i].Value = words[6];
                         //resposta
                         dataGridView1[7, i].Value = words[7];
+                        //data resposta
+                        dataGridView1[8, i].Value = words[8];
+                        //hora resposta
+                        dataGridView1[9, i].Value = words[9];
                         i++;
                     }
                     sr.Close();
@@ -92,9 +96,14 @@ namespace Projeto_C
                             dataGridView1[6, i].Value = words[6];
                             //resposta
                             dataGridView1[7, i].Value = words[7];
+                            //data resposta
+                            dataGridView1[8, i].Value = words[8];
+                            //hora resposta
+                            dataGridView1[9, i].Value = words[9];
                             i++;
                         }
                     }
+                    sr.Close();
                 }
             }
             else
@@ -141,19 +150,22 @@ namespace Projeto_C
                                     //após a confirmação deleta todo o texto do ficheiro para voltar a escrever com a resposta
                                     dataGridView1[5, i].Value = "Concluído";
                                     sr.Close();
+                                    dataGridView1[8, i].Value = DateTime.Now.ToString("HH:mm");
+                                    dataGridView1[9, i].Value = DateTime.Today.ToString("dd/MM/yyyy");
                                     File.WriteAllText(notificacao, "");
                                     StreamWriter sw = File.AppendText(notificacao);
                                     for (int a = 0; a < dataGridView1.Rows.Count - 1; a++)
                                     {
                                         sw.WriteLine(dataGridView1[0, a].Value.ToString() + ";" + dataGridView1[1, a].Value.ToString() + ";" + dataGridView1[2, a].Value.ToString() + ";" +
                                         dataGridView1[3, a].Value.ToString() + ";" + dataGridView1[4, a].Value.ToString() + ";" + dataGridView1[5, a].Value.ToString() + ";" +
-                                        dataGridView1[6, a].Value.ToString() + ";" + dataGridView1[7, a].Value.ToString());
+                                        dataGridView1[6, a].Value.ToString() + ";" + dataGridView1[7, a].Value.ToString() + ";" + dataGridView1[8, i].Value.ToString() + ";" + dataGridView1[9, i].Value.ToString());
                                     }
                                     sw.Close();
                                     MessageBox.Show("Resposta Enviada!");
                                     goto end;
                                 }
                             }
+                            sr.Close();
                         }
                     }
                     else

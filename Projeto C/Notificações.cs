@@ -175,7 +175,7 @@ namespace Projeto_C
 
                     using (StreamWriter sw = File.AppendText(ficheiro))
                     {
-                        sw.WriteLine(docente + ";" + sala + ";" + assunto + ";" + data + ";" + hora + ";" + estado + ";" + comentario + ";");
+                        sw.WriteLine(docente + ";" + sala + ";" + assunto + ";" + data + ";" + hora + ";" + estado + ";" + comentario + ";" + ";" + ";");
                         sw.Close();
                         MessageBox.Show("Pedido enviado!");
                     }
@@ -194,7 +194,7 @@ namespace Projeto_C
 
                 using (StreamWriter sw = File.AppendText(ficheiro))
                 {
-                    sw.WriteLine(docente + ";" + sala + ";" + assunto + ";" + data + ";" + hora + ";" + estado + ";" + comentario + ";");
+                    sw.WriteLine(docente + ";" + sala + ";" + assunto + ";" + data + ";" + hora + ";" + estado + ";" + comentario + ";" + ";" + ";");
                     sw.Close();
                     MessageBox.Show("Pedido enviado!");
                 }
