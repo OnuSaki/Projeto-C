@@ -121,37 +121,45 @@ namespace Projeto_C
                 //Confirma se existe uma row selecionada
                 if (dataGridView1.Rows[i].Selected == true)
                 {
-                    dataGridView1[7, i].Value = textBox1.Text;
-                    string notificacao = @"notificaçoes.txt";
-                    if (File.Exists(notificacao))
+                    if (dataGridView1[7, i].Value == "")
                     {
-                        //abre o ficheiro para verificar em q linha o espaços da datagridview se encontram
-                        StreamReader sr = File.OpenText(notificacao);
-                        string linha = "";
-                        while ((linha = sr.ReadLine()) != null)
+                        dataGridView1[7, i].Value = textBox1.Text;
+                        string notificacao = @"notificaçoes.txt";
+                        if (File.Exists(notificacao))
                         {
-                            string[] words = linha.Split(';');
-                            //confirmação
-                            if ((dataGridView1[0, i].Value.ToString() == words[0]) && (dataGridView1[1, i].Value.ToString() == words[1]) && (dataGridView1[2, i].Value.ToString() == words[2]) &&
-                                (dataGridView1[3, i].Value.ToString() == words[3]) && (dataGridView1[4, i].Value.ToString() == words[4]) && (dataGridView1[5, i].Value.ToString() == words[5]) &&
-                                (dataGridView1[6, i].Value.ToString() == words[6]) && (words[7] == ""))
+                            //abre o ficheiro para verificar em q linha o espaços da datagridview se encontram
+                            StreamReader sr = File.OpenText(notificacao);
+                            string linha = "";
+                            while ((linha = sr.ReadLine()) != null)
                             {
-                                //após a confirmação deleta todo o texto do ficheiro para voltar a escrever com a resposta
-                                dataGridView1[5, i].Value = "Concluído";
-                                sr.Close();
-                                File.WriteAllText(notificacao, "");
-                                StreamWriter sw = File.AppendText(notificacao);
-                                for (int a = 0; a < dataGridView1.Rows.Count - 1; a++)
+                                string[] words = linha.Split(';');
+                                //confirmação
+                                if ((dataGridView1[0, i].Value.ToString() == words[0]) && (dataGridView1[1, i].Value.ToString() == words[1]) && (dataGridView1[2, i].Value.ToString() == words[2]) &&
+                                    (dataGridView1[3, i].Value.ToString() == words[3]) && (dataGridView1[4, i].Value.ToString() == words[4]) && (dataGridView1[5, i].Value.ToString() == words[5]) &&
+                                    (dataGridView1[6, i].Value.ToString() == words[6]) && (words[7] == ""))
                                 {
-                                    sw.WriteLine(dataGridView1[0, a].Value.ToString() + ";" + dataGridView1[1, a].Value.ToString() + ";" + dataGridView1[2, a].Value.ToString() + ";" +
-                                    dataGridView1[3, a].Value.ToString() + ";" + dataGridView1[4, a].Value.ToString() + ";" + dataGridView1[5, a].Value.ToString() + ";" +
-                                    dataGridView1[6, a].Value.ToString() + ";" + dataGridView1[7, a].Value.ToString());
+                                    //após a confirmação deleta todo o texto do ficheiro para voltar a escrever com a resposta
+                                    dataGridView1[5, i].Value = "Concluído";
+                                    sr.Close();
+                                    File.WriteAllText(notificacao, "");
+                                    StreamWriter sw = File.AppendText(notificacao);
+                                    for (int a = 0; a < dataGridView1.Rows.Count - 1; a++)
+                                    {
+                                        sw.WriteLine(dataGridView1[0, a].Value.ToString() + ";" + dataGridView1[1, a].Value.ToString() + ";" + dataGridView1[2, a].Value.ToString() + ";" +
+                                        dataGridView1[3, a].Value.ToString() + ";" + dataGridView1[4, a].Value.ToString() + ";" + dataGridView1[5, a].Value.ToString() + ";" +
+                                        dataGridView1[6, a].Value.ToString() + ";" + dataGridView1[7, a].Value.ToString());
+                                    }
+                                    sw.Close();
+                                    MessageBox.Show("Resposta Enviada!");
+                                    goto end;
                                 }
-                                sw.Close();
-                                MessageBox.Show("Resposta Enviada!");
-                                goto end;
                             }
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("A notificação que selecionou já tem resposta");
+                        goto end;
                     }
                 }
             }
