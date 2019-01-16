@@ -25,7 +25,10 @@ namespace Projeto_C
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Login f = new Login();
+            f.Show();
             this.Close();
+            
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
