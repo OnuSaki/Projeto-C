@@ -74,6 +74,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Consultas";
             this.Text = "Consultas";
             this.ResumeLayout(false);

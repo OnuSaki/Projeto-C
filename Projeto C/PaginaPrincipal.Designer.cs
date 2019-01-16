@@ -186,6 +186,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PaginaPrincipal";
             this.Text = "Gestão de Salas Informáticas";
             this.Load += new System.EventHandler(this.Form3_Load);
