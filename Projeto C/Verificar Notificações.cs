@@ -141,7 +141,7 @@ namespace Projeto_C
                 //Confirma se existe uma row selecionada
                 if (dataGridView1.Rows[i].Selected == true)
                 {
-                    if (dataGridView1[7, i].Value == "")
+                    if (dataGridView1[7, i].Value.ToString() == "")
                     {
                         dataGridView1[7, i].Value = textBox1.Text;
                         string notificacao = @"notificaçoes.txt";
@@ -161,14 +161,15 @@ namespace Projeto_C
                                     //após a confirmação deleta todo o texto do ficheiro para voltar a escrever com a resposta
                                     dataGridView1[5, i].Value = "Concluído";
                                     sr.Close();
-                                    dataGridView1[8, i].Value = DateTime.Now.ToString("HH:mm");
-                                    dataGridView1[9, i].Value = DateTime.Today.ToString("dd/MM/yyyy");
                                     File.WriteAllText(notificacao, "");
                                     StreamWriter sw = File.AppendText(notificacao);
                                     for (int a = 0; a < dataGridView1.Rows.Count - 1; a++)
                                     {
-                                        if (dataGridView1[8, i].Value != "")
+                                        int index = dataGridView1.CurrentCell.RowIndex;
+                                        if (a == index)
                                         {
+                                            dataGridView1[8, a].Value = DateTime.Now.ToString("HH:mm");
+                                            dataGridView1[9, a].Value = DateTime.Today.ToString("dd/MM/yyyy");
                                             sw.WriteLine(dataGridView1[0, a].Value.ToString() + ";" + dataGridView1[1, a].Value.ToString() + ";" + dataGridView1[2, a].Value.ToString() + ";" +
                                             dataGridView1[3, a].Value.ToString() + ";" + dataGridView1[4, a].Value.ToString() + ";" + dataGridView1[5, a].Value.ToString() + ";" +
                                             dataGridView1[6, a].Value.ToString() + ";" + dataGridView1[7, a].Value.ToString() + ";" + dataGridView1[8, i].Value.ToString() + ";" + dataGridView1[9, i].Value.ToString());
@@ -177,7 +178,7 @@ namespace Projeto_C
                                         {
                                             sw.WriteLine(dataGridView1[0, a].Value.ToString() + ";" + dataGridView1[1, a].Value.ToString() + ";" + dataGridView1[2, a].Value.ToString() + ";" +
                                             dataGridView1[3, a].Value.ToString() + ";" + dataGridView1[4, a].Value.ToString() + ";" + dataGridView1[5, a].Value.ToString() + ";" +
-                                            dataGridView1[6, a].Value.ToString() + ";" + dataGridView1[7, a].Value.ToString() + ";" + ";");
+                                            dataGridView1[6, a].Value.ToString() + ";" + dataGridView1[7, a].Value.ToString() + ";" + dataGridView1[8, a].Value.ToString() + ";" + dataGridView1[9, a].Value.ToString());
                                         }
                                     }
                                     sw.Close();
