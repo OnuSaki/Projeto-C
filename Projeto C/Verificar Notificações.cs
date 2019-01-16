@@ -30,6 +30,7 @@ namespace Projeto_C
                 button2.Visible = false;
                 textBox1.Visible = false;
                 label1.Visible = false;
+                Column6.ReadOnly = false;
             }
             string notificacao = @"notificaçoes.txt";
             string linha = "";
