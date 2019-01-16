@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -57,7 +58,7 @@
             this.Column7,
             this.Column8});
             this.dataGridView1.Location = new System.Drawing.Point(16, 15);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1155, 524);
             this.dataGridView1.TabIndex = 0;
@@ -79,7 +80,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(181, 567);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(695, 22);
             this.textBox1.TabIndex = 12;
@@ -97,7 +98,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(885, 565);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(149, 28);
             this.button2.TabIndex = 15;
@@ -141,6 +142,8 @@
             // 
             // Column6
             // 
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column6.HeaderText = "Estado";
             this.Column6.Items.AddRange(new object[] {
             "Pendente",
@@ -174,7 +177,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Verificar_Notificações";
             this.Text = "Verificar_Notificações";
             this.Load += new System.EventHandler(this.Verificar_Notificações_Load);
