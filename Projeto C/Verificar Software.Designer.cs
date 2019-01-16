@@ -116,6 +116,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Verificar_Software";
             this.Text = "Verificar_Software";
             this.Load += new System.EventHandler(this.Verificar_Software_Load);
