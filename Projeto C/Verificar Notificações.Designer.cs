@@ -142,6 +142,9 @@
             // Column6
             // 
             this.Column6.HeaderText = "Estado";
+            this.Column6.Items.AddRange(new object[] {
+            "Pendente",
+            "Concluído"});
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
