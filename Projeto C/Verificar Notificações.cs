@@ -30,7 +30,8 @@ namespace Projeto_C
                 button2.Visible = false;
                 textBox1.Visible = false;
                 label1.Visible = false;
-                Column6.ReadOnly = false;
+                Column6.ReadOnly = true;
+                //coluna para nao escrever
             }
             string notificacao = @"notificaçoes.txt";
             string linha = "";
@@ -135,7 +136,7 @@ namespace Projeto_C
                                 (dataGridView1[3, i].Value.ToString() == words[3]) && (dataGridView1[4, i].Value.ToString() == words[4]) && (dataGridView1[5, i].Value.ToString() == words[5]) &&
                                 (dataGridView1[6, i].Value.ToString() == words[6]) && (words[7] == ""))
                             {
-                                //após a confirmação deleta todo o ficheiro do ficheiro para voltar a escrever com a resposta
+                                //após a confirmação deleta todo o texto do ficheiro para voltar a escrever com a resposta
                                 dataGridView1[5, i].Value = "Concluído";
                                 sr.Close();
                                 File.WriteAllText(notificacao, "");
