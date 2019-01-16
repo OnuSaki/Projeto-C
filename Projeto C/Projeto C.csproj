@@ -193,5 +193,8 @@
   <ItemGroup>
     <None Include="Resources\chave notificaçao sala.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo ipp.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

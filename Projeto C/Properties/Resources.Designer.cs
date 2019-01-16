@@ -133,6 +133,16 @@ namespace Projeto_C.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_ipp {
+            get {
+                object obj = ResourceManager.GetObject("logo ipp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap multiple_choice {
             get {
                 object obj = ResourceManager.GetObject("multiple-choice", resourceCulture);
