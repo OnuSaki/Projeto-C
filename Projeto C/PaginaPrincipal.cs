@@ -86,12 +86,37 @@ namespace Projeto_C
                             i++;
                         }
                     }
-                    toolStripStatusLabel1.Text = "Você tem " + i + " notificações pendentes.";
                 }
+                toolStripStatusLabel1.Text = "Você tem " + i + " notificações pendentes.";
             }
             else
             {
-                toolStripStatusLabel1.Text = "";
+                string notificacao = @"notificaçoes.txt";
+                string linha = "";
+                int i = 0;
+                int a = 0;
+                StreamReader sr;
+                if (File.Exists(notificacao))
+                {
+                    sr = File.OpenText(notificacao);
+                    while ((linha = sr.ReadLine()) != null)
+                    {
+                        string[] words = linha.Split(';');
+                        if (words[0] == pessoas.nomeut)
+                        {
+                            if (words[5] == "Pendente")
+                            {
+                                i++;
+                            }
+                            else
+                            {
+                                a++;
+                            }
+                        }
+                    }
+                    sr.Close();
+                    toolStripStatusLabel1.Text = "Você tem " + i + " notificações pendentes e " + a + " concluídas";
+                }
             }
         }
 
