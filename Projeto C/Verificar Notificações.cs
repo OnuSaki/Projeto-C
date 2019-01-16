@@ -33,6 +33,11 @@ namespace Projeto_C
                 Column6.ReadOnly = true;
                 //coluna para nao escrever
             }
+            if (pessoas.nomeut != "admin" && pessoas.nomeut != "serviçosinf")
+            {                
+                Column6.ReadOnly = false;
+                //escrever a resposta
+            }
             string notificacao = @"notificaçoes.txt";
             string linha = "";
             StreamReader sr;
@@ -161,7 +166,7 @@ namespace Projeto_C
                                     //após a confirmação deleta todo o texto do ficheiro para voltar a escrever com a resposta
                                     dataGridView1[5, i].Value = "Concluído";
                                     sr.Close();
-                                    File.WriteAllText(notificacao, "");
+                                    File.WriteAllText(notificacao, "");                                    
                                     StreamWriter sw = File.AppendText(notificacao);
                                     for (int a = 0; a < dataGridView1.Rows.Count - 1; a++)
                                     {
