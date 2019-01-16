@@ -50,6 +50,7 @@ namespace Projeto_C
         {
             textBox1.Text = "";
             textBox2.Text = "";
+            this.Hide();
             CriarConta f2 = new CriarConta();//criar novo form para registar
             f2.Show();//mostrar o form2 para registar
         }
