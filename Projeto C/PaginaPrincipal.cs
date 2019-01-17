@@ -21,15 +21,22 @@ namespace Projeto_C
         private void Form3_Load(object sender, EventArgs e)
         {
             label3.Text = pessoas.nomeut;
+            //caso seja um docente a dar login
             if ((label3.Text != "admin") && (label3.Text != "serviçosinf"))//botao sem permissoes
             {
                 button4.Text = "Sem Permissões";
                 button4.Enabled = false;
-            }
+            }            
             if ((label3.Text != "admin") && (label3.Text != "serviçosinf"))//botao sem permissoes
             {
                 button1.Text = "Sem Permissões";
                 button1.Enabled = false;
+            }
+            //caso seja o admin ou os serviços a dar login
+            if ((label3.Text == "admin") || (label3.Text == "serviçosinf"))//botao sem permissoes
+            {
+                button3.Text = "Somente Docentes";
+                button3.Enabled = false;
             }
             //Criação de salas pré-defenidas
             string salas = @"salas.txt";
