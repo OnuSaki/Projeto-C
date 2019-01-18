@@ -99,6 +99,8 @@ namespace Projeto_C
                         sw.WriteLine(textBox1.Text + ";" + textBox2.Text + ";" + "docente" + ";" + textBox3.Text);
                         sw.Close();
                         MessageBox.Show("Conta criada com sucesso");
+                        Login f = new Login();
+                        f.Show();
                         this.Close();
                     }
                 end:;
@@ -130,6 +132,8 @@ namespace Projeto_C
                         sw.WriteLine(textBox1.Text + ";" + textBox2.Text + ";" + "docente" + ";" + textBox3.Text);
                         sw.Close();
                         MessageBox.Show("Conta criada com sucesso");
+                        Login f = new Login();
+                        f.Show();
                         this.Close();
                     }
                 }
