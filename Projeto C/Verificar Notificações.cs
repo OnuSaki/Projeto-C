@@ -27,16 +27,18 @@ namespace Projeto_C
         {
             if (pessoas.nomeut != "admin" && pessoas.nomeut != "serviçosinf")
             {
+                //botao submeter resposta
                 button2.Visible = false;
+                //texto da resposta
                 textBox1.Visible = false;
+                //label da resposta a notificaçao
                 label1.Visible = false;
-                Column6.ReadOnly = true;
-                //coluna para nao escrever
+                //coluna 6 - estado passa a readonly para docentes
+                Column6.ReadOnly = true;                
             }
             if (pessoas.nomeut != "admin" && pessoas.nomeut != "serviçosinf")
             {                
-                Column6.ReadOnly = false;
-                //escrever a resposta
+                Column6.ReadOnly = false;                
             }
             string notificacao = @"notificaçoes.txt";
             string linha = "";
@@ -204,6 +206,115 @@ namespace Projeto_C
             //Caso não selecione nenhuma row
             MessageBox.Show("Selecione primeiro uma row.");
         end:;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //checkbox sala
+            if(checkBox1.Checked==true)
+            {
+                Column2.Visible = true;
+            }
+            else if (checkBox1.Checked == false)
+            {
+                Column2.Visible = false;
+            }            
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            //checkbox assunto
+            if (checkBox2.Checked == true)
+            {
+                Column3.Visible = true;//coluna assunto visivel
+            }
+            else if (checkBox2.Checked == false)
+            {
+                Column3.Visible = false;//coluna assunto invisivel
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            //checkbox data/hora inicial
+            if (checkBox3.Checked == true)
+            {
+                Column4.Visible = true;//coluna data inicial visivel
+                Column5.Visible = true;//coluna hora inicial visivel
+            }
+            else if (checkBox3.Checked == false)
+            {
+                Column4.Visible = false;//coluna data inicial invisivel
+                Column5.Visible = false;//coluna hora inicial invisivel
+            }
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            //checkbox estado
+            if (checkBox4.Checked == true)
+            {
+                Column6.Visible = true;//coluna estado visivel
+            }
+            else if (checkBox4.Checked == false)
+            {
+                Column6.Visible = false;//coluna estado invisivel
+            }
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            //checkbox comentario
+            if (checkBox5.Checked == true)
+            {
+                Column7.Visible = true;//coluna comentario visivel
+            }
+            else if (checkBox5.Checked == false)
+            {
+                Column7.Visible = false;//coluna comentario invisivel
+            }
+        }
+
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            //checkbox resposta
+            if (checkBox6.Checked == true)
+            {
+                //coluna resposta visivel
+                Column8.Visible = true;
+                //botao submeter resposta
+                button2.Visible = true;
+                //texto da resposta
+                textBox1.Visible = true;
+                //label da resposta a notificaçao
+                label1.Visible = true;
+            }
+            else if (checkBox6.Checked == false)
+            {
+                //coluna resposta invisivel
+                Column8.Visible = false;
+                //botao submeter resposta
+                button2.Visible = false;
+                //texto da resposta
+                textBox1.Visible = false;
+                //label da resposta a notificaçao
+                label1.Visible = false;                
+            }
+        }
+
+        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            //checkbox data/hora final
+            if (checkBox7.Checked == true)
+            {
+                Column9.Visible = true;//coluna data final visivel
+                Column10.Visible = true;//coluna hora final visivel
+            }
+            else if (checkBox7.Checked == false)
+            {
+                Column9.Visible = false;//coluna data final invisivel
+                Column10.Visible = false;//coluna hora final invisivel
+            }
         }
     }
 }

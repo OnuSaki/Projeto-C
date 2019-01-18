@@ -37,5 +37,10 @@ namespace Projeto_C
             ver_notificacoes.Show();
             this.Hide();
         }
+
+        private void Consultas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
