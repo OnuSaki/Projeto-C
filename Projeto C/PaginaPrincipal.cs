@@ -207,8 +207,7 @@ namespace Projeto_C
         }
 
         private void button2_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
+        {            
         }
 
         private void button7_Click(object sender, EventArgs e)
