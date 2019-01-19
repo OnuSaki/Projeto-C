@@ -93,8 +93,12 @@ namespace Projeto_C
                             i++;
                         }
                     }
+                    toolStripStatusLabel1.Text = "Você tem " + i + " notificações pendentes.";
                 }
-                toolStripStatusLabel1.Text = "Você tem " + i + " notificações pendentes.";
+                else
+                {
+                    toolStripStatusLabel1.Text = "Você tem " + i + " notificações pendentes.";
+                }
             }
             else
             {
@@ -122,6 +126,10 @@ namespace Projeto_C
                         }
                     }
                     sr.Close();
+                    toolStripStatusLabel1.Text = "Você tem " + i + " notificações pendentes e " + a + " concluídas";
+                }
+                else
+                {
                     toolStripStatusLabel1.Text = "Você tem " + i + " notificações pendentes e " + a + " concluídas";
                 }
             }
