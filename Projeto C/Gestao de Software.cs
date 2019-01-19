@@ -158,16 +158,16 @@ namespace Projeto_C
             //ciclo "for" por o lisbox1.items.count será 0, ou seja, será igual ao i.
             if (listBox1.Items.Count == 0)
             {
-                listBox1.Items.Add(software.software + "; " + software.data + "; " + software.hora + "; " + software.tipo);
+                listBox1.Items.Add(software.software + ";" + software.data + ";" + software.hora + ";" + software.tipo);
                 StreamWriter sw1 = File.AppendText(sala);
-                sw1.WriteLine(software.software + "; " + software.data + "; " + software.hora + "; " + software.tipo);
+                sw1.WriteLine(software.software + ";" + software.data + ";" + software.hora + ";" + software.tipo);
                 sw1.Close();
                 goto aqui;
             }
             //Se já houver algum software executa isto
-            listBox1.Items.Add(software.software + "; " + software.data + "; " + software.hora + "; " + software.tipo);
+            listBox1.Items.Add(software.software + ";" + software.data + ";" + software.hora + ";" + software.tipo);
             StreamWriter sw = File.AppendText(sala);
-            sw.WriteLine(software.software + "; " + software.data + "; " + software.hora + "; " + software.tipo);
+            sw.WriteLine(software.software + ";" + software.data + ";" + software.hora + ";" + software.tipo);
             sw.Close();
         end:;
         aqui:;

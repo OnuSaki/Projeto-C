@@ -31,7 +31,9 @@ namespace Projeto_C
             sr.Close();
             //Para cada sala, verifica se existe o ficheiro
             //se existir, passa todo o software dessa sala e avança para a próxima
-            for (int i = 0; i < listBox1.Items.Count; i++)
+            string num = listBox1.Items.Count.ToString();
+            int num1 = Convert.ToInt16(num);
+            for (int i = 0; i < num1; i++)
             {
                 StreamReader sala;
                 string sala1 = @"" + listBox1.Items[i].ToString() + ".txt";
@@ -40,18 +42,9 @@ namespace Projeto_C
                     sala = File.OpenText(sala1);
                     while ((linha = sala.ReadLine()) != null)
                     {
-                        dataGridView1.Rows.Add(1);
                         string[] words = linha.Split(';');
-                        //nome sala
-                        dataGridView1[0, i].Value = listBox1.Items[i].ToString();
-                        //software
-                        dataGridView1[1, i].Value = words[0];
-                        //data
-                        dataGridView1[2, i].Value = words[1];
-                        //hora
-                        dataGridView1[3, i].Value = words[2];
-                        //tipo licença
-                        dataGridView1[4, i].Value = words[3];
+                        dataGridView1.Rows.Add(listBox1.Items[i].ToString(), words[0], words[1], words[2], words[3]);
+
                     }
                 }
                 sr.Close();
