@@ -149,6 +149,8 @@ namespace Projeto_C
                 //Confirma se existe uma row selecionada
                 if (dataGridView1.Rows[i].Selected == true)
                 {
+                  if (textBox1.Text!="")
+                  {
                     if (dataGridView1[7, i].Value.ToString() == "")
                     {
                         dataGridView1[7, i].Value = textBox1.Text;
@@ -202,6 +204,12 @@ namespace Projeto_C
                         MessageBox.Show("A notificação que selecionou já tem resposta");
                         goto end;
                     }
+                  }
+                  else
+                  {
+                      MessageBox.Show("Escreva uma resposta.");
+                        goto end;
+                  }
                 }
             }
             //Caso não selecione nenhuma row

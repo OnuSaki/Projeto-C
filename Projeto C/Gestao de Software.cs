@@ -144,13 +144,20 @@ namespace Projeto_C
                 string linha;
                 while ((linha = sr.ReadLine()) != null)
                 {
+                    //se estiver em branco a caixa de texto
+                    if (textBox1.Text == "")
+                    {
+                        MessageBox.Show("Preencha os campos necessários!");
+                        sr.Close();
+                        goto end;
+                    }
                     int pos = linha.IndexOf(";");
                     if (textBox1.Text == linha.Substring(0, pos))
                     {
                         MessageBox.Show("Software já instalado!");
                         sr.Close();
                         goto end;
-                    }
+                    }                    
                 }
                 sr.Close();
             }
