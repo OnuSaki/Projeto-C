@@ -231,8 +231,10 @@ namespace Projeto_C
         {
             int i = 0;
             string linha = "";
-            string notificacao = @"notificaçoes.txt";            
-            if ((comboBox1.Text == "Todos") || (comboBox1.Text == ""))
+            string notificacao = @"notificaçoes.txt";
+            // se não for admin ou serviços logados, apenas aparece as notificaçoes do proprio utilizador           
+                        
+            if ((comboBox1.Text == "Todos"))
             {
                 dataGridView1.Rows.Clear();
                 //copia todas as notificações para a datagridview
@@ -333,64 +335,18 @@ namespace Projeto_C
         {
             int i = 0;
             string linha = "";
-            string notificacao = @"notificaçoes.txt";            
-            if ((comboBox2.Text == "Todas") || (comboBox2.Text == ""))
-            {
-                dataGridView1.Rows.Clear();
-                //copia todas as notificações para a datagridview
-                StreamReader sr = File.OpenText(notificacao);
-                while ((linha = sr.ReadLine()) != null)
+            string notificacao = @"notificaçoes.txt";
+            if ((pessoas.nomeut != "admin") && (pessoas.nomeut != "serviçosinf"))
+            { 
+                if ((comboBox2.Text == "Todas"))
                 {
-                    dataGridView1.Rows.Add(1);
-                    string[] words = linha.Split(';');
-                    //utilizador
-                    dataGridView1[0, i].Value = words[0];
-                    //sala
-                    dataGridView1[1, i].Value = words[1];
-                    //assunto
-                    dataGridView1[2, i].Value = words[2];
-                    //data
-                    dataGridView1[3, i].Value = words[3];
-                    //hora
-                    dataGridView1[4, i].Value = words[4];
-                    //estado
-                    dataGridView1[5, i].Value = words[5];
-                    //comentario
-                    dataGridView1[6, i].Value = words[6];
-                    //resposta
-                    dataGridView1[7, i].Value = words[7];
-                    if (words[8] == "" && words[9] == "")
-                    {
-                        //data resposta
-                        dataGridView1[8, i].Value = "";
-                        //hora resposta
-                        dataGridView1[9, i].Value = "";
-                        i++;
-                    }
-                    else
-                    {
-                        //data resposta
-                        dataGridView1[8, i].Value = words[8];
-                        //hora resposta
-                        dataGridView1[9, i].Value = words[9];
-                        i++;
-                    }
-                }
-                sr.Close();
-            }        
-            else
-            {
-                string sala = @"salas.txt";
-                dataGridView1.Rows.Clear();
-                if (File.Exists(sala))
-                {
-                    StreamReader sr2;
+                    dataGridView1.Rows.Clear();
                     //copia todas as notificações para a datagridview
-                    sr2 = File.OpenText(notificacao);
-                    while ((linha = sr2.ReadLine()) != null)
-                    {
-                        string[] words = linha.Split(';');
-                        if (words[1] == comboBox2.Text)
+                    StreamReader sr = File.OpenText(notificacao);
+                    while ((linha = sr.ReadLine()) != null)
+                    {                        
+                        string[] words = linha.Split(';');                        
+                        if (pessoas.nomeut.ToString() ==words[0])
                         {
                             dataGridView1.Rows.Add(1);
                             //utilizador
@@ -426,10 +382,159 @@ namespace Projeto_C
                                 i++;
                             }
                         }
+
+                    }
+                }
+                else
+                {
+                    string sala = @"salas.txt";
+                    dataGridView1.Rows.Clear();
+                    if (File.Exists(sala))
+                    {
+                        StreamReader sr2;
+                        //copia todas as notificações para a datagridview
+                        sr2 = File.OpenText(notificacao);
+                        while ((linha = sr2.ReadLine()) != null)
+                        {
+                            string[] words = linha.Split(';');
+                            if ((words[0]==pessoas.nomeut.ToString())&&(words[1] == comboBox2.Text))
+                            {
+                                dataGridView1.Rows.Add(1);
+                                //utilizador
+                                dataGridView1[0, i].Value = words[0];
+                                //sala
+                                dataGridView1[1, i].Value = words[1];
+                                //assunto
+                                dataGridView1[2, i].Value = words[2];
+                                //data
+                                dataGridView1[3, i].Value = words[3];
+                                //hora
+                                dataGridView1[4, i].Value = words[4];
+                                //estado
+                                dataGridView1[5, i].Value = words[5];
+                                //comentario
+                                dataGridView1[6, i].Value = words[6];
+                                //resposta
+                                dataGridView1[7, i].Value = words[7];
+                                if (words[8] == "" && words[9] == "")
+                                {
+                                    //data resposta
+                                    dataGridView1[8, i].Value = "";
+                                    //hora resposta
+                                    dataGridView1[9, i].Value = "";
+                                    i++;
+                                }
+                                else
+                                {
+                                    //data resposta
+                                    dataGridView1[8, i].Value = words[8];
+                                    //hora resposta
+                                    dataGridView1[9, i].Value = words[9];
+                                    i++;
+                                }
+                            }
+                        }
                     }
                 }
             }
-
+            else
+            {
+                if ((comboBox2.Text == "Todas"))
+                {
+                    dataGridView1.Rows.Clear();
+                    //copia todas as notificações para a datagridview
+                    StreamReader sr = File.OpenText(notificacao);
+                    while ((linha = sr.ReadLine()) != null)
+                    {
+                        dataGridView1.Rows.Add(1);
+                        string[] words = linha.Split(';');
+                        //utilizador
+                        dataGridView1[0, i].Value = words[0];
+                        //sala
+                        dataGridView1[1, i].Value = words[1];
+                        //assunto
+                        dataGridView1[2, i].Value = words[2];
+                        //data
+                        dataGridView1[3, i].Value = words[3];
+                        //hora
+                        dataGridView1[4, i].Value = words[4];
+                        //estado
+                        dataGridView1[5, i].Value = words[5];
+                        //comentario
+                        dataGridView1[6, i].Value = words[6];
+                        //resposta
+                        dataGridView1[7, i].Value = words[7];
+                        if (words[8] == "" && words[9] == "")
+                        {
+                            //data resposta
+                            dataGridView1[8, i].Value = "";
+                            //hora resposta
+                            dataGridView1[9, i].Value = "";
+                            i++;
+                        }
+                        else
+                        {
+                            //data resposta
+                            dataGridView1[8, i].Value = words[8];
+                            //hora resposta
+                            dataGridView1[9, i].Value = words[9];
+                            i++;
+                        }
+                    }
+                    sr.Close();
+                }
+                else
+                {
+                    string sala = @"salas.txt";
+                    dataGridView1.Rows.Clear();
+                    if (File.Exists(sala))
+                    {
+                        StreamReader sr2;
+                        //copia todas as notificações para a datagridview
+                        sr2 = File.OpenText(notificacao);
+                        while ((linha = sr2.ReadLine()) != null)
+                        {
+                            string[] words = linha.Split(';');
+                            if (words[1] == comboBox2.Text)
+                            {
+                                dataGridView1.Rows.Add(1);
+                                //utilizador
+                                dataGridView1[0, i].Value = words[0];
+                                //sala
+                                dataGridView1[1, i].Value = words[1];
+                                //assunto
+                                dataGridView1[2, i].Value = words[2];
+                                //data
+                                dataGridView1[3, i].Value = words[3];
+                                //hora
+                                dataGridView1[4, i].Value = words[4];
+                                //estado
+                                dataGridView1[5, i].Value = words[5];
+                                //comentario
+                                dataGridView1[6, i].Value = words[6];
+                                //resposta
+                                dataGridView1[7, i].Value = words[7];
+                                if (words[8] == "" && words[9] == "")
+                                {
+                                    //data resposta
+                                    dataGridView1[8, i].Value = "";
+                                    //hora resposta
+                                    dataGridView1[9, i].Value = "";
+                                    i++;
+                                }
+                                else
+                                {
+                                    //data resposta
+                                    dataGridView1[8, i].Value = words[8];
+                                    //hora resposta
+                                    dataGridView1[9, i].Value = words[9];
+                                    i++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
