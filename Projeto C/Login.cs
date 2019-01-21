@@ -20,6 +20,16 @@ namespace Projeto_C
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string escolhersala = @"escolheSALA.txt";
+            if (File.Exists(escolhersala))
+            {
+                //nao faz nada
+            }
+            else
+            {
+                StreamWriter sw1 = File.CreateText(escolhersala);
+                sw1.Close();
+            }
             string utilizadores = @"utilizadores.txt";
             StreamWriter sw;
             if(File.Exists(utilizadores))

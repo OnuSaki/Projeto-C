@@ -178,6 +178,61 @@ namespace Projeto_C
                         sw.WriteLine(docente + ";" + sala + ";" + assunto + ";" + data + ";" + hora + ";" + estado + ";" + comentario + ";" + ";" + ";");
                         sw.Close();
                         MessageBox.Show("Pedido enviado!");
+                        //COPIA A SALA PARA O FICHEIRO DE ESCOLHER SALA ---------------------
+                        string escolhesala = @"escolheSALA.txt";
+                        StreamReader srsala = File.OpenText(escolhesala);
+                        string linhasala = "";
+                        if (File.Exists(escolhesala))
+                        {
+                            while ((linhasala = srsala.ReadLine()) != null)
+                            {
+                                if (linhasala == sala)
+                                {
+                                    goto end;//se a sala ja existir
+                                }
+                            }
+                            srsala.Close();
+                            StreamWriter swescolhesala = File.AppendText(escolhesala);
+                            swescolhesala.WriteLine(sala);
+                            swescolhesala.Close();
+                        end:;
+                            srsala.Close();
+                        }
+                        else
+                        {
+                            File.CreateText(escolhesala);
+                            StreamWriter swescolhesala = File.AppendText(escolhesala);
+                            swescolhesala.WriteLine(sala);
+                            swescolhesala.Close();
+                        }
+                        //---------------------------------------------------------------
+                        //COPIA O UTILIZADOR PARA O FICHEIRO DE ESCOLHER UTILIZADOR
+                        string escolheUTIL = @"escolheUTIL.txt";
+                        StreamReader srUTIL = File.OpenText(escolheUTIL);
+                        string linhaUTIL = "";
+                        if (File.Exists(escolheUTIL))
+                        {
+                            while ((linhaUTIL = srUTIL.ReadLine()) != null)
+                            {
+                                if (linhaUTIL == docente)
+                                {
+                                    goto end;//se a sala ja existir
+                                }
+                            }
+                                srUTIL.Close();
+                                StreamWriter swescolheUTIL = File.AppendText(escolheUTIL);
+                                swescolheUTIL.WriteLine(docente);
+                                swescolheUTIL.Close();
+                        end:;
+                            srUTIL.Close();
+                        }
+                        else
+                        {
+                            File.CreateText(escolhesala);
+                            StreamWriter swescolhesala = File.AppendText(escolhesala);
+                            swescolhesala.WriteLine(sala);
+                            swescolhesala.Close();
+                        }
                     }
                 }
             }
@@ -197,6 +252,58 @@ namespace Projeto_C
                     sw.WriteLine(docente + ";" + sala + ";" + assunto + ";" + data + ";" + hora + ";" + estado + ";" + comentario + ";" + ";" + ";");
                     sw.Close();
                     MessageBox.Show("Pedido enviado!");
+                    string escolhesala = @"escolheSALA.txt";
+                    StreamReader srsala = File.OpenText(escolhesala);
+                    string linhasala = "";
+                    if (File.Exists(escolhesala))
+                    {
+                        while ((linhasala = srsala.ReadLine()) != null)
+                        {
+                            if (linhasala == sala)
+                            {
+                                goto end;//se a sala ja existir
+                            }
+                        }
+                        srsala.Close();
+                        StreamWriter swescolhesala = File.AppendText(escolhesala);
+                        swescolhesala.WriteLine(sala);
+                    end:;
+                        srsala.Close();
+                    }
+                    else
+                    {
+                        File.CreateText(escolhesala);
+                        StreamWriter swescolhesala = File.AppendText(escolhesala);
+                        swescolhesala.WriteLine(sala);
+                    }
+                    //---------------------------------------------------------------
+                    //COPIA O UTILIZADOR PARA O FICHEIRO DE ESCOLHER UTILIZADOR
+                    string escolheUTIL = @"escolheUTIL.txt";
+                    StreamReader srUTIL = File.OpenText(escolheUTIL);
+                    string linhaUTIL = "";
+                    if (File.Exists(escolheUTIL))
+                    {
+                        while ((linhaUTIL = srUTIL.ReadLine()) != null)
+                        {
+                            if (linhaUTIL == docente)
+                            {
+                                goto end;//se a sala ja existir
+                            }
+                        }
+                        srUTIL.Close();
+                        StreamWriter swescolheUTIL = File.AppendText(escolheUTIL);
+                        swescolheUTIL.WriteLine(docente);
+                        swescolheUTIL.Close();
+                    end:;
+                        srUTIL.Close();
+                    }
+                    else
+                    {
+                        File.CreateText(escolheUTIL);
+                        StreamWriter swescolheUTIL = File.AppendText(escolheUTIL);
+                        swescolheUTIL.WriteLine(docente);
+                        swescolheUTIL.Close();
+                    }
                 }
             }
         }
