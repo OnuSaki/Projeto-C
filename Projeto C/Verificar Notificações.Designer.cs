@@ -79,10 +79,9 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 15);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1461, 524);
+            this.dataGridView1.Size = new System.Drawing.Size(1096, 426);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -164,10 +163,10 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.BackgroundImage = global::Projeto_C.Properties.Resources.botao_retroceder_2;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(1429, 558);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Location = new System.Drawing.Point(1072, 453);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(52, 44);
+            this.button3.Size = new System.Drawing.Size(39, 36);
             this.button3.TabIndex = 11;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -175,30 +174,27 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(252, 562);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Location = new System.Drawing.Point(189, 457);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(889, 30);
+            this.textBox1.Size = new System.Drawing.Size(668, 26);
             this.textBox1.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 566);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 460);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(214, 23);
+            this.label1.Size = new System.Drawing.Size(171, 18);
             this.label1.TabIndex = 13;
             this.label1.Text = "Resposta à Notificação";
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1151, 550);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(863, 447);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(248, 55);
+            this.button2.Size = new System.Drawing.Size(186, 45);
             this.button2.TabIndex = 15;
             this.button2.Text = "Submeter Resposta";
             this.button2.UseVisualStyleBackColor = true;
@@ -206,18 +202,18 @@
             // 
             // Verificar_Notificações
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1497, 618);
+            this.ClientSize = new System.Drawing.Size(1123, 502);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Verificar_Notificações";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verificar_Notificações";
             this.Load += new System.EventHandler(this.Verificar_Notificações_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
