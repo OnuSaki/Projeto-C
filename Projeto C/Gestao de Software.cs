@@ -34,93 +34,76 @@ namespace Projeto_C
             //confirma se existe o ficheiro salas
             if (File.Exists(salas))
             {
-                //existindo, abre-o para colocar que salas se encontram no sistema
-                sr = File.OpenText(salas);
                 string linha;
-                while ((linha = sr.ReadLine()) != null)
-                {
-                    listBox2.Items.Add(linha);
-                }
-                sr.Close();
                 //ficheiro .txt com a sala que se pretende verificar
                 string sala = @"" + comboBox1.Text + ".txt";
-                string num = listBox2.Items.Count.ToString();
-                int num1 = Convert.ToInt16(num);
-                for (int i = 0; i < num1; i++)
+                if (File.Exists(sala))
                 {
-                    //Verifica se existe a sala no sistema
-                    if (comboBox1.Text == listBox2.Items[i].ToString())
+                    //abre o ficheiro e copia para a listbox1 os softwares já instalados nessa sala
+                    sr = File.OpenText(sala);
+                    while ((linha = sr.ReadLine()) != null)
                     {
-                        if (File.Exists(sala))
-                        {
-                            //abre o ficheiro e copia para a listbox1 os softwares já instalados nessa sala
-                            sr = File.OpenText(sala);
-                            while ((linha = sr.ReadLine()) != null)
-                            {
-                                listBox1.Items.Add(linha);
-                            }
-                            sr.Close();
-                            //Após abrir o ficheiro da sala, escondem-se os botões inicias para que possa aparecer os
-                            //botões para adicionar um software novo à sala ou trocar a sala que se pretende verificar
-                            //que software se encontra instalado
-                            //Label Software
-                            label2.Visible = true;
-                            //label licença
-                            label3.Visible = true;
-                            //Textbox à frente da label software
-                            textBox1.Visible = true;
-                            //textbox à frente da label licença
-                            comboBox2.Visible = true;
-                            //botão adicionar software
-                            button2.Visible = true;
-                            //botão verificar outra sala
-                            button4.Visible = true;
-                            //botão verificar software
-                            button1.Visible = false;
-                            //label sala
-                            label1.Visible = false;
-                            //combobox sala
-                            comboBox1.Visible = false;                            
-                            goto end;
-                        }
-                        else
-                        {
-                            //se o ficheiro da sala ainda não existir cria o ficheiro para essa sala
-                            StreamWriter sw = File.CreateText(sala);
-                            sw.Close();
-                            //abre o ficheiro e copia para a listbox1 os softwares já instalados nessa sala
-                            sr = File.OpenText(sala);
-                            while ((linha = sr.ReadLine()) != null)
-                            {
-                                listBox1.Items.Add(linha);
-                            }
-                            sr.Close();
-                            //Após abrir o ficheiro da sala, escondem-se os botões inicias para que possa aparecer os
-                            //botões para adicionar um software novo à sala ou trocar a sala que se pretende verificar
-                            //que software se encontra instalado
-                            //Label Software
-                            label2.Visible = true;
-                            //label licença
-                            label3.Visible = true;
-                            //Textbox à frente da label software
-                            textBox1.Visible = true;
-                            //textbox à frente da label licença
-                            comboBox2.Visible = true;
-                            //botão adicionar software
-                            button2.Visible = true;
-                            //botão verificar outra sala
-                            button4.Visible = true;
-                            //botão verificar software
-                            button1.Visible = false;
-                            //label sala
-                            label1.Visible = false;
-                            //combobox sala
-                            comboBox1.Visible = false;
-                            goto end;
-                        }
+                        listBox1.Items.Add(linha);
                     }
+                    sr.Close();
+                    //Após abrir o ficheiro da sala, escondem-se os botões inicias para que possa aparecer os
+                    //botões para adicionar um software novo à sala ou trocar a sala que se pretende verificar
+                    //que software se encontra instalado
+                    //Label Software
+                    label2.Visible = true;
+                    //label licença
+                    label3.Visible = true;
+                    //Textbox à frente da label software
+                    textBox1.Visible = true;
+                    //textbox à frente da label licença
+                    comboBox2.Visible = true;
+                    //botão adicionar software
+                    button2.Visible = true;
+                    //botão verificar outra sala
+                    button4.Visible = true;
+                    //botão verificar software
+                    button1.Visible = false;
+                    //label sala
+                    label1.Visible = false;
+                    //combobox sala
+                    comboBox1.Visible = false;                            
+                    goto end;
+                    }
+                else
+                    {
+                    //se o ficheiro da sala ainda não existir cria o ficheiro para essa sala
+                    StreamWriter sw = File.CreateText(sala);
+                    sw.Close();
+                    //abre o ficheiro e copia para a listbox1 os softwares já instalados nessa sala
+                    sr = File.OpenText(sala);
+                    while ((linha = sr.ReadLine()) != null)
+                    {
+                        listBox1.Items.Add(linha);
+                    }
+                    sr.Close();
+                    //Após abrir o ficheiro da sala, escondem-se os botões inicias para que possa aparecer os
+                    //botões para adicionar um software novo à sala ou trocar a sala que se pretende verificar
+                    //que software se encontra instalado
+                    //Label Software
+                    label2.Visible = true;
+                    //label licença
+                    label3.Visible = true;
+                    //Textbox à frente da label software
+                    textBox1.Visible = true;
+                    //textbox à frente da label licença
+                    comboBox2.Visible = true;
+                    //botão adicionar software
+                    button2.Visible = true;
+                    //botão verificar outra sala
+                    button4.Visible = true;
+                    //botão verificar software
+                    button1.Visible = false;
+                    //label sala
+                    label1.Visible = false;
+                    //combobox sala
+                    comboBox1.Visible = false;
+                    goto end;
                 }
-                MessageBox.Show("Sala não registada! Por favor, registe primeiro a sala em Gestão de salas");
             }
             else
             {
