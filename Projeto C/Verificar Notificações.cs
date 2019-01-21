@@ -136,23 +136,29 @@ namespace Projeto_C
             }
             //ESCOLHER UTILIZADOR COMBOBOX--------------------------------------------  
             string escolheUTIL = @"escolheUTIL.txt";
-            StreamReader sr2 = File.OpenText(escolheUTIL);//abre a escolha de utilizadores para inserir na combobox
-            while ((linha = sr2.ReadLine()) != null)
+            StreamReader sr2;//abre a escolha de utilizadores para inserir na combobox
+            if (File.Exists(escolheUTIL))
             {
-                comboBox1.Items.Add(linha);
-            }
-            sr2.Close();
+                sr2 = File.OpenText(escolheUTIL);
+                while ((linha = sr2.ReadLine()) != null)
+                {
+                    comboBox1.Items.Add(linha);
+                }
+                sr2.Close();
+            } 
 
             //ESCOLHER SALA COMBOBOX---------------------------------------------            
             string salas = @"escolheSALA.txt";
             string linha1 = "";
-            StreamReader srsalas = File.OpenText(salas);
+            StreamReader srsalas;
             if (File.Exists(salas))
             {
+                srsalas = File.OpenText(salas);
                 while ((linha1 = srsalas.ReadLine()) != null)
                 {
                     comboBox2.Items.Add(linha1);
                 }
+                srsalas.Close();
             }
         }
 
