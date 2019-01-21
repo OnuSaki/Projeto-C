@@ -168,30 +168,18 @@ namespace Projeto_C
                                     (dataGridView1[3, i].Value.ToString() == words[3]) && (dataGridView1[4, i].Value.ToString() == words[4]) && (dataGridView1[5, i].Value.ToString() == words[5]) &&
                                     (dataGridView1[6, i].Value.ToString() == words[6]) && (words[7] == ""))
                                 {
-                                    //após a confirmação deleta todo o texto do ficheiro para voltar a escrever com a resposta
                                     dataGridView1[5, i].Value = "Concluído";
-                                    sr.Close();
-                                    File.WriteAllText(notificacao, "");                                    
-                                    StreamWriter sw = File.AppendText(notificacao);
-                                    for (int a = 0; a < dataGridView1.Rows.Count - 1; a++)
-                                    {
-                                        int index = dataGridView1.CurrentCell.RowIndex;
-                                        if (a == index)
-                                        {
-                                            dataGridView1[8, a].Value = DateTime.Now.ToString("HH:mm");
-                                            dataGridView1[9, a].Value = DateTime.Today.ToString("dd/MM/yyyy");
-                                            sw.WriteLine(dataGridView1[0, a].Value.ToString() + ";" + dataGridView1[1, a].Value.ToString() + ";" + dataGridView1[2, a].Value.ToString() + ";" +
-                                            dataGridView1[3, a].Value.ToString() + ";" + dataGridView1[4, a].Value.ToString() + ";" + dataGridView1[5, a].Value.ToString() + ";" +
-                                            dataGridView1[6, a].Value.ToString() + ";" + dataGridView1[7, a].Value.ToString() + ";" + dataGridView1[8, i].Value.ToString() + ";" + dataGridView1[9, i].Value.ToString());
+                                    dataGridView1[8, i].Value = DateTime.Now.ToString("HH:mm");
+                                    dataGridView1[9, i].Value = DateTime.Today.ToString("dd/MM/yyyy");                                        
+                                    sr.Close();                                    
+                                        if (linha == words[0] + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";" + "Pendente" + ";" + words[6] + ";" + ";" + ";")
+                                        {                                            
+                                            string linhareplace = words[0] + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";" + "Concluído" + ";" + words[6] + ";"+ dataGridView1[7, i].Value.ToString() + ";"+ dataGridView1[8, i].Value.ToString() + ";"+ dataGridView1[9, i].Value.ToString();
+                                            
+                                            string remover = File.ReadAllText(notificacao);
+                                            remover = remover.Replace(linha, linhareplace);
+                                            File.WriteAllText(notificacao,remover);
                                         }
-                                        else
-                                        {
-                                            sw.WriteLine(dataGridView1[0, a].Value.ToString() + ";" + dataGridView1[1, a].Value.ToString() + ";" + dataGridView1[2, a].Value.ToString() + ";" +
-                                            dataGridView1[3, a].Value.ToString() + ";" + dataGridView1[4, a].Value.ToString() + ";" + dataGridView1[5, a].Value.ToString() + ";" +
-                                            dataGridView1[6, a].Value.ToString() + ";" + dataGridView1[7, a].Value.ToString() + ";" + dataGridView1[8, a].Value.ToString() + ";" + dataGridView1[9, a].Value.ToString());
-                                        }
-                                    }
-                                    sw.Close();
                                     MessageBox.Show("Resposta Enviada!");
                                     goto end;
                                 }
